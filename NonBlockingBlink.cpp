@@ -85,7 +85,7 @@ void NonBlockingBlink::update() {
       times--;
     }
     if(times == 0) {
-      blinking false;
+      blinking = false;
       digitalWrite(led, groundstate);
       Serial.println(groundstate);
     }
