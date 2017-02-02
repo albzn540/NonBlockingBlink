@@ -53,7 +53,7 @@ void NonBlockingBlink::update() {
     }
   }
   else {
-    digitalWrite(led, groundstate)
+    digitalWrite(led, groundstate);
   }
 
 }
