@@ -1,29 +1,28 @@
 {
-    "name": "NonBlockingBlink", 
+    "name": "NonBlockingBlink",
     "repository": {
-        "url": "https://gits-15.sys.kth.se/albinwi/NonBlockingBlink.git", 
+        "url": "https://gits-15.sys.kth.se/albinwi/NonBlockingBlink.git",
         "type": "git"
-    }, 
+    },
     "platforms": [
         "*"
-    ], 
+    ],
     "frameworks": [
         "arduino"
-    ], 
-    "version": "1.0", 
+    ],
+    "version": "1.0",
     "authors": [
         {
-            "maintainer": false, 
-            "name": "Albin Winkelmann", 
-            "url": "https://gits-15.sys.kth.se/albinwi", 
+            "maintainer": false,
+            "name": "Albin Winkelmann",
+            "url": "https://gits-15.sys.kth.se/albinwi",
             "email": null
         }
-    ], 
+    ],
     "keywords": [
-        "blink", 
+        "blink",
         "nonblocking",
-    ], 
-    "homepage": "https://gits-15.sys.kth.se/albinwi/NonBlockingBlink", 
-    "id": 420, 
+    ],
+    "homepage": "https://gits-15.sys.kth.se/albinwi/NonBlockingBlink",
     "description": "This library will blink your LED (or any other thing) while not interrupting the other code"
 }
