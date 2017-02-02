@@ -82,6 +82,7 @@ void NonBlockingBlink::update() {
     }
     if(times == 0) {
       blinking = false;
+      digitalWrite(led, groundstate);
     }
   }
 }
