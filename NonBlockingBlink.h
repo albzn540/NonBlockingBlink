@@ -22,7 +22,7 @@ private:
   uint8_t led;
   uint8_t times;
   uint8_t groundstate;
-  uint8_t ledState;
+  uint8_t ledstate;
   unsigned long previousMillis;
   unsigned long interval;
 

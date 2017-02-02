@@ -29,7 +29,7 @@ NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t groundstate) {
 
   interval = 250;
   previousMillis = 0;
-  ledState = groundstate;
+  ledstate = groundstate;
 }
 
 void NonBlockingBlink::setBlinkTimes(uint8_t times){
@@ -48,9 +48,12 @@ void NonBlockingBlink::update() {
       // save the last time you blinked the LED
       previousMillis = currentMillis;
 
-      digitalWrite(led, !ledState);
+      digitalWrite(led, !ledstate);
       times--;
     }
+  }
+  else {
+    digitalWrite(led, groundstate)
   }
 
 }
