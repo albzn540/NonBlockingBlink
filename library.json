@@ -1,0 +1,15 @@
+{
+    "name": "NonBlockingBlink",
+    "keywords": "led, blink, nonblock",
+    "description": "A nonblocking library for blinking stuff",
+    "repository": {
+        "type": "git",
+        "url": "https://gits-15.sys.kth.se/albinwi/NonBlockingBlink.git"
+    },
+    "homepage": "",
+    "version": "1.0",
+    "exclude": "",
+    "examples": "",
+    "frameworks": "arduino",
+    "platforms": "*"
+}
