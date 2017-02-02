@@ -19,6 +19,7 @@ NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t times, uint8_t groundsta
   previousMillis = 0;
   ledstate = groundstate;
   forever = false;
+  blinking = false;
 }
 
 NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t groundstate) {
@@ -32,19 +33,23 @@ NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t groundstate) {
   previousMillis = 0;
   ledstate = groundstate;
   forever = false;
+  blinking = false;
 }
 
 void NonBlockingBlink::setBlinkTimes(uint8_t times){
   this->times = times * 2;
+  blinking = true;
 }
 
 void NonBlockingBlink::setBlinkForever(){
   forever = true;
+  blinking = true;
   times = 0;
 }
 
 void NonBlockingBlink::stopBlink(){
   forever = false;
+  blinking = false;
   times = 0;
 }
 
@@ -63,9 +68,10 @@ void NonBlockingBlink::update() {
       digitalWrite(led, !ledstate);
       ledstate = !ledstate;
     }
+    if(!blinking) digitalWrite(led, groundstate);
   }
 
-  else if(times != 0){
+  else if(blinking){
     if (currentMillis - previousMillis >= interval) {
       // save the last time you blinked the LED
       previousMillis = currentMillis;
@@ -78,10 +84,9 @@ void NonBlockingBlink::update() {
       ledstate = !ledstate;
       times--;
     }
-  }
-
-  else {
-    digitalWrite(led, groundstate);
-  }
-
+    if(times == 0) {
+      blinking false;
+      digitalWrite(led, groundstate);
+      Serial.println(groundstate);
+    }
 }

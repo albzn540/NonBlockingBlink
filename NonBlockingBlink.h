@@ -26,6 +26,7 @@ private:
   uint8_t groundstate;
   uint8_t ledstate;
   bool forever;
+  bool blinking;
   unsigned long previousMillis;
   unsigned long interval;
 
