@@ -17,7 +17,7 @@ NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t times, uint8_t groundsta
 
   interval = 250;
   previousMillis = 0;
-  ledState = groundstate;
+  ledstate = groundstate;
 }
 
 NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t groundstate) {
