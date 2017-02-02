@@ -69,6 +69,10 @@ void NonBlockingBlink::update() {
     if (currentMillis - previousMillis >= interval) {
       // save the last time you blinked the LED
       previousMillis = currentMillis;
+      Serial.print("Time: ");
+      Serial.print(times);
+      Serial.print("               State before change: ");
+      Serial.println(ledstate);
 
       digitalWrite(led, !ledstate);
       ledstate = !ledstate;
