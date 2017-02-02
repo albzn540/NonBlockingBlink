@@ -22,13 +22,13 @@ NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t times, uint8_t groundsta
   blinking = false;
 }
 
-NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t groundstate) {
+NonBlockingBlink::NonBlockingBlink(uint8_t led, uint8_t _groundstate) {
   pinMode(led, OUTPUT);
   digitalWrite(led, groundstate);
   this->groundstate = groundstate;
   this->led = led;
-  this->times = 0;
 
+  times = 0;
   interval = 500;
   previousMillis = 0;
   ledstate = groundstate;
@@ -51,6 +51,8 @@ void NonBlockingBlink::stopBlink(){
   forever = false;
   blinking = false;
   times = 0;
+  ledstate = groundstate;
+  digitalWrite(led, groundstate);
 }
 
 void NonBlockingBlink::setInterval(long millis){
@@ -68,29 +70,19 @@ void NonBlockingBlink::update() {
       digitalWrite(led, !ledstate);
       ledstate = !ledstate;
     }
-    if(!blinking) digitalWrite(led, groundstate);
   }
 
   else if(blinking){
     if (currentMillis - previousMillis >= interval) {
       // save the last time you blinked the LED
       previousMillis = currentMillis;
-      Serial.print("Time: ");
-      Serial.print(times);
-      Serial.print("               State before change: ");
-      Serial.println(ledstate);
 
       digitalWrite(led, !ledstate);
       ledstate = !ledstate;
       times--;
     }
     if(times == 0) {
-      blinking = false;
-      digitalWrite(led, groundstate);
-<<<<<<< HEAD
-=======
-      Serial.println(groundstate);
->>>>>>> parent of aeef03d... 2.3
+      stopBlink();
     }
   }
 }
