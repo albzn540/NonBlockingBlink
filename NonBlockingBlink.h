@@ -15,14 +15,17 @@ public:
   NonBlockingBlink(uint8_t led, uint8_t times, uint8_t groundstate);
   NonBlockingBlink(uint8_t led, uint8_t groundstate);
   void setBlinkTimes(uint8_t times);
+  void setBlinkForever();
+  void stopBlink();
   void setInterval(long millis);
   void update();
 
 private:
   uint8_t led;
-  uint8_t times;
+  int times;
   uint8_t groundstate;
   uint8_t ledstate;
+  bool forever;
   unsigned long previousMillis;
   unsigned long interval;
 
