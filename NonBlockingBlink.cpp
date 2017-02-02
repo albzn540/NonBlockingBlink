@@ -75,6 +75,10 @@ void NonBlockingBlink::update() {
     if (currentMillis - previousMillis >= interval) {
       // save the last time you blinked the LED
       previousMillis = currentMillis;
+      Serial.print("Time: ");
+      Serial.print(times);
+      Serial.print("               State before change: ");
+      Serial.println(ledstate);
 
       digitalWrite(led, !ledstate);
       ledstate = !ledstate;
@@ -83,6 +87,10 @@ void NonBlockingBlink::update() {
     if(times == 0) {
       blinking = false;
       digitalWrite(led, groundstate);
+<<<<<<< HEAD
+=======
+      Serial.println(groundstate);
+>>>>>>> parent of aeef03d... 2.3
     }
   }
 }
