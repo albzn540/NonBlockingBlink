@@ -89,4 +89,5 @@ void NonBlockingBlink::update() {
       digitalWrite(led, groundstate);
       Serial.println(groundstate);
     }
+  }
 }
